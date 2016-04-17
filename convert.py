@@ -3,7 +3,9 @@ import sys
 
 import geojson
 
-filepath = 'examples/argentina-realtion-286393.json'
+filepath = 'examples/argentina-relation-286393.json'
+filepath = 'examples/costa-rica-relation-287667.json'
+filepath = 'examples/puerto-rico-relation-4422604.json'
 with open(filepath) as fd:
     data = json.load(fd)
 
@@ -41,12 +43,15 @@ def make_polygons(lines):
                 del lines[i]
                 break
             i += 1
-    if i == len(lines):
-        assert current_polygon[0][0] == current_polygon[-1][-1]
-        polygons.append([point for _line in current_polygon for point in _line])
-        if lines:
-            current_polygon = [lines[0]]
-            lines = lines[1:]
+
+        if i == len(lines):
+            # import pdb
+            # pdb.set_trace()
+            assert current_polygon[0][0] == current_polygon[-1][-1]
+            polygons.append([point for _line in current_polygon for point in _line])
+            if lines:
+                current_polygon = [lines[0]]
+                lines = lines[1:]
     return polygons
 
 
