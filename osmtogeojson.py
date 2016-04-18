@@ -31,22 +31,18 @@ def make_polygons(ways):
     while ways:
         target_point = current_polygon_points[-1]
         i = 0
-        found_it = False
         while i < len(ways):
             line = ways[i]['points']
             if line[0] == target_point:
                 current_polygon_points.extend(line)
                 del ways[i]
-                found_it = True
                 break
             if line[-1] == target_point:
                 current_polygon_points.extend(line[::-1])
                 del ways[i]
-                found_it = True
                 break
             i += 1
-
-        if not found_it:
+        else:
             logger.debug("First point: %s. Last point: %s", current_polygon_points[0],
                          current_polygon_points[-1])
             logger.debug("No of remaining ways: %s", len(ways))
