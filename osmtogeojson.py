@@ -1,6 +1,6 @@
 """
 Usage:
-    osmtogeojson.py [options] [<osm_file>]
+    osmtogeojson.py [options] <osm_file>
     osmtogeojson.py -h | --help
 
 Options:
