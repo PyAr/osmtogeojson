@@ -10,8 +10,8 @@ Options:
 import json
 import logging
 
-import geojson
-from docopt import docopt
+import geojson  # fades
+from docopt import docopt  # fades
 
 logger = logging.getLogger(__name__)
 
